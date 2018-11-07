@@ -1,0 +1,24 @@
+<h1 class="mat-h1">Movies Dashboard</h1>
+<div class="row">
+  <div class="col-sm-12">
+    <img class="imgresponsive" src="../../assets/background.png" alt="Movies placeholder image">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+      Filter by Name*     
+  </div>
+  <div class="col-sm-6">
+    <div class="input-group mb-6">
+      <input type="text" class="form-control" [(ngModel)]="searchTag" [ngModelOptions]="{standalone: true}" />
+      <button class="btn btn-primary btn-sm" (click)="retrieveImages(searchTag)">Search</button>
+      <button class="btn btn-danger btn-sm" (click)="searchTag='';retrieveImages(searchTag)">Clear</button>
+    </div>
+  </div>
+</div>
+<div class="row">&nbsp;</div>
+<mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let item of movieItems" class="gridstyle">
+    <app-movie-item [movie]="item" [showDescription]="'false'" style="height:100%; width:100%;" ></app-movie-item>
+  </mat-grid-tile>
+</mat-grid-list>

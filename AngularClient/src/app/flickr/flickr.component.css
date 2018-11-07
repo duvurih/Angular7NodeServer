@@ -1,0 +1,20 @@
+.gridstyle {
+    background: lightblue;
+    border:solid;
+    color: burlywood;
+  }
+
+.cardstyle{
+  width: 100%; 
+  height: 100%;  
+}
+
+.expandstyle{
+  border: solid; 
+  color: #6ac68fbb; 
+  border-radius: 20px;  
+}
+
+p{
+  color: black;
+}

@@ -1,0 +1,11 @@
+
+Select
+<mat-slide-toggle [(ngModel)]="viewGrid" [ngModelOptions]="{standalone: true}">
+  <span *ngIf="!viewGrid" >List View</span>
+  <span *ngIf="viewGrid" >Card View</span>
+</mat-slide-toggle>
+<div class="row shortRow"></div>
+
+<app-viewobservation *ngIf="!viewGrid" ></app-viewobservation>
+
+<app-view-card-observation *ngIf="viewGrid"></app-view-card-observation>

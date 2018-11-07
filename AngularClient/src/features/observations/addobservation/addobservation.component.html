@@ -1,0 +1,104 @@
+<div class="modal-content bg-light ">
+  <div class="modal-header bg-dark text-white">
+    <h5 class="modal-title">Add Discussion/Observation</h5>
+    <button type="button" mat-dialog-close class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>  
+</div> 
+
+<div mat-dialog-content>
+  <div *ngIf="pageHasError" class="alert alert-danger">
+    All fields marked as mandatory are required to complete the discussion.
+  </div>
+  <form [formGroup]="observationForm" novalidate (ngSubmit)="saveObservation()">
+    <!-- <div class="row" *ngIf="(observationForm.invalid && pageSaveClicked) || pageHasError">
+      <div class="col-sm-12">
+        <div class="alert alert-danger" role="alert">
+          <h6><span class="glyphicon glyphicon-remove-sign"></span>Please correct following error(s).</h6>
+          <ul>
+            <li *ngIf="saveHasErrors">{{errorMessage}}</li>
+            <li *ngIf="observationForm.controls.discussion.hasError('required')">Discussion Title is required</li>
+            <li *ngIf="observationForm.controls.discussionDate.hasError('matDatepickerMin')">Start date should be greater than start date.</li>
+            <li *ngIf="observationForm.controls.discussionDate.hasError('matDatepickerMax')">Start date should not be greater than today's date.</li>
+            <li *ngIf="observationForm.controls.discussionDate.hasError('required')">Discussion date is required.</li>
+            <li *ngIf="observationForm.controls.discussionLocation.hasError('required')">Discussion location is required.</li>
+            <li *ngIf="observationForm.controls.discussionWith.hasError('required')">Discussion with is required.</li>
+            <li *ngIf="observationForm.controls.subject.hasError('required')">Discussion subject is required.</li>
+            <li *ngIf="observationForm.controls.outcome.hasError('required')">Discussion outcome is required.</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field class="suffixform" style="width: 100%" hintLabel="Max 50 characters">
+          <input matInput placeholder="Discussion" maxlength="50" formControlName="discussion" name="discussion" [(ngModel)]="observationItem.discussion">
+          <!-- <mat-hint align="end">{{observationItem.discussion.value?.length || 0}}/50</mat-hint> -->
+          <mat-error *ngIf="observationForm.controls['discussion'].hasError('required')">{{"Discussion Title is required."}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="shortRow">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field class="suffixform" style="width: 100%">
+          <input matInput [matDatepicker]="dDate" placeholder="Discussion date" formControlName="discussionDate" [(ngModel)]="observationItem.discussionDate" name="discussionDate" [max]="maxDiscussionEndDate" [min]="minDiscussionStartDate">
+          <mat-datepicker-toggle matSuffix [for]="dDate"></mat-datepicker-toggle>
+          <mat-datepicker #dDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="shortRow">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field style="width: 100%" hintLabel="Max 50 characters">
+          <input matInput placeholder="Location" #discussionLocation maxlength="50" formControlName="discussionLocation" name="discussionLocation" [(ngModel)]="observationItem.discussionLocation">
+          <!-- <mat-hint align="end">{{discussionLocation.value?.length || 0}}/50</mat-hint> -->
+          <mat-error *ngIf="observationForm.controls['discussionLocation'].hasError('required')">{{"Location Name is required."}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="shortRow">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field style="width: 100%" hintLabel="Max 50 characters">
+          <input matInput placeholder="Discussion With" maxlength="50" formControlName="discussionWith" name="discussionWith" [(ngModel)]="observationItem.discussionWith">
+          <!-- <mat-hint align="end">{{observationItem.discussionWith.value?.length || 0}}/50</mat-hint> -->
+          <mat-error *ngIf="observationForm.controls['discussionWith'].hasError('required')">{{"Discussion with is required."}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="shortRow">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field style="width: 100%" hintLabel="Max 255 characters">
+          <textarea matInput placeholder="Discussion Subject" maxlength="255" formControlName="subject" name="subject" [(ngModel)]="observationItem.subject"></textarea>
+          <!-- <mat-hint align="end">{{observationItem.subject.value?.length || 0}}/255</mat-hint> -->
+          <mat-error *ngIf="observationForm.controls['subject'].hasError('required')">{{"Discussion subject is required."}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="shortRow">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field style="width: 100%" hintLabel="Max 255 characters">
+          <textarea matInput placeholder="Discussion Outcome" maxlength="255" formControlName="outcome" name="outcome" [(ngModel)]="observationItem.outcome"></textarea>
+          <!-- <mat-hint align="end">{{observationItem.outcome.value?.length || 0}}/255</mat-hint> -->
+          <mat-error *ngIf="observationForm.controls['outcome'].hasError('required')">{{"Discussion outcome is required."}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    <div class="example-section">
+      <button class="btn btn-primary" mat-raised-button type="submit">Save</button>&nbsp;&nbsp;
+      <button class="btn btn-danger" mat-raised-button (click)="closeDialog()">Cancel</button>
+    </div>
+
+
+  </form>
+</div>
+<!--<div mat-dialog-actions>
+
+</div>-->

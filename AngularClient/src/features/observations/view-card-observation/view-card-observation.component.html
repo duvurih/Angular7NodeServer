@@ -1,0 +1,76 @@
+<h1 class="mat-h1">Discussions Dashboard</h1>
+<div class="alert alert-danger">
+  Enter employee id to view the observations.
+</div>
+<div class="row">
+  <div class="col-sm-3">
+      Enter Employee ID*     
+  </div>
+  <div class="col-sm-6">
+    <div class="input-group mb-6">
+        <input type="text" class="form-control" [(ngModel)]="employeeID" [ngModelOptions]="{standalone: true}" />
+        <button class="btn btn-primary" (click)="getObservations(employeeID)">Search</button>
+        <button aria-label="Add" class="btn btn-success" (click)="addObservation()" style="align-self: center" align="end">
+            <i class="fa fa-add" aria-hidden="true"></i> +                          
+        </button>        
+    </div>
+  </div>
+</div>
+<div class="row">&nbsp;</div>
+<mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let item of observationList" style="border:solid;color: burlywood">
+        <mat-card class="example-card" style="width:100%;">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>
+                        {{item.discussion}}
+                        <div class="btn-group text-right" role="group" style="justify-content:end">
+                            <button mat-button class="btn btn-primary rounded-circle" style="min-width:4px;"><i class="fa fa-thumbs-up"></i></button>
+                            <button mat-button class="btn btn-success rounded-circle" style="min-width:4px;"><i class="fa fa-share-alt"></i></button>
+                        </div>
+                    </mat-card-title>
+                    <mat-card-subtitle>On {{item.discussionDate  | date:'dd-MM-yyyy' }} &nbsp; <div class="pull-right"> @ {{item.discussionLocation}}</div></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                    Discussed With
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <p>{{item.discussionWith.userId}}</p>
+                            </mat-expansion-panel>                      
+                        </div>                  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Subject
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <p>{{item.subject}}</p>
+                            </mat-expansion-panel>                      
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                    Outcome
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                
+                                <p>{{item.outcome}}</p>
+                            
+                            </mat-expansion-panel>                      
+                        </div>                  
+                    </div>
+                </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

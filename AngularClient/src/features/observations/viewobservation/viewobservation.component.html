@@ -1,0 +1,91 @@
+<h1 class="mat-h1">Discussions Dashboard</h1>
+<div class="alert alert-danger">
+  Enter employee id to view the observations.
+</div>
+<div class="row">
+  <div class="col-sm-3">
+      Enter Employee ID*     
+  </div>
+  <div class="col-sm-6">
+    <div class="input-group mb-6">
+        <input type="text" class="form-control" [(ngModel)]="employeeID" [ngModelOptions]="{standalone: true}" />
+        <button class="btn btn-primary" (click)="getObservations(employeeID)">Search</button>
+    </div>
+  </div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-sm-12">
+      <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h5>Discussions/Observations Information</h5>
+              <button aria-label="Add" class="btn btn-primary" (click)="addObservation()" style="align-self: center" align="end">
+                  <i class="fa fa-add" aria-hidden="true"></i> +                          
+              </button>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>    
+          <mat-table #table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.id}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="discussion" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.discussion}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="discussionDate" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.discussionDate | date:'dd-MM-yyyy' }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="discussionLocation" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.discussionLocation }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="discussionWith" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> With </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.discussionWith.userId }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="subject" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> Subject </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.subject }} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="outcome" mat-sort-header>
+              <mat-header-cell *matHeaderCellDef> Outcome </mat-header-cell>
+              <mat-cell *matCellDef="let item"> {{item.outcome }} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+          <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>          
+      </mat-expansion-panel>
+  </div>
+</div>
+
+<!-- <div class="grid-container">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> 
+</div> -->
