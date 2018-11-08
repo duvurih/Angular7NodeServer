@@ -1,3 +1,9 @@
+// var appzip = require('appmetrics-zipkin')({
+//     host: 'localhost',
+//     port: 9411,
+//     serviceName:'server',
+//     sampleRate: 1.0
+//   });
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const express = require('express');

@@ -41,11 +41,8 @@ module.exports = {
     },
 
     getUsersObservations: async (req, res, next) =>{
-        console.log('getUsersObservations');
         const { userId } = req.params;
         const userObservations = await User.findOne({'userId': userId}).populate({path: 'observataions', populate:[{path: 'recordedBy'},{path: 'discussionWith'}]});
-        console.log('observation info');
-        console.log(userObservations);
         res.status(200).json(userObservations);
     },
 

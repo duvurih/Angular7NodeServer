@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ScrollingModule, ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 import { SharedModule } from './../features/modules/shared/shared.module';
 import { MaterialModule } from './../features/modules/material/material.module';
@@ -41,6 +42,8 @@ export const BROWSER_SANITIZATION_PROVIDERS: Array<any> = [
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ScrollingModule,
+    ScrollDispatchModule,
     SharedModule.forRoot(),
     MaterialModule.forRoot(),
     BrowserAnimationsModule

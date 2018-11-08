@@ -17,6 +17,8 @@ export class MyMoviesComponent implements OnInit {
   dynamicCols: Number = 3;
   mobileCols: Number = 1;
   ipadCols: Number = 2;
+  viewGrid = true;
+
   constructor(
     private dataContextService: DataContextService,
     private sharedDataService: SharedDataService,

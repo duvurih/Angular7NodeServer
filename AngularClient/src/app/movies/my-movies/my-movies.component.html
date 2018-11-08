@@ -1,4 +1,10 @@
 <h1 class="mat-h1">Movies Dashboard</h1>
+Select
+<mat-slide-toggle [(ngModel)]="viewGrid" [ngModelOptions]="{standalone: true}">
+  <span *ngIf="!viewGrid" >List View</span>
+  <span *ngIf="viewGrid" >Card View</span>
+</mat-slide-toggle>
+<div class="row shortRow"></div>
 <div class="row">
   <div class="col-sm-12">
     <img class="imgresponsive" src="../../assets/background.png" alt="Movies placeholder image">
@@ -17,8 +23,25 @@
   </div>
 </div>
 <div class="row">&nbsp;</div>
-<mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
+<div *ngIf="viewGrid">
+  <cdk-virtual-scroll-viewport itemSize="4">
+    <li *cdkVirtualFor="let item of movieItems" class="animated lightSpeedIn">
+      <app-movie-item [movie]="item" [showDescription]="'false'"></app-movie-item>
+    </li> 
+  </cdk-virtual-scroll-viewport>
+</div>
+<div *ngIf="!viewGrid">
+  <!-- <cdk-virtual-scroll-viewport itemSize="10"> -->
+    <mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let item of movieItems" class="animated lightSpeedIn gridstyle">
+        <app-movie-item [movie]="item" [showDescription]="'false'" style="height:100%; width:100%;" ></app-movie-item>
+      </mat-grid-tile>
+    </mat-grid-list>
+  <!-- </cdk-virtual-scroll-viewport> -->
+</div>
+
+<!-- <mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let item of movieItems" class="gridstyle">
     <app-movie-item [movie]="item" [showDescription]="'false'" style="height:100%; width:100%;" ></app-movie-item>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
