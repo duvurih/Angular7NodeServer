@@ -12,7 +12,8 @@ import { MovieItem } from '../models/movieItem.model';
 })
 export class MyMoviesComponent implements OnInit {
 
-  public movieItems: MovieItem[];
+  // public movieItems: MovieItem[];
+  movieItems$;
   searchTag: String = '';
   dynamicCols: Number = 3;
   mobileCols: Number = 1;
@@ -26,9 +27,26 @@ export class MyMoviesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.moviesService.httpGetMoviesImages().subscribe(data => {
-      this.movieItems = data;
-      this.movieItems = this.movieItems.sort((left, right): number => {
+    this.fetchMovies();
+    if (window.innerWidth <= 400) {
+      this.dynamicCols = this.mobileCols;
+    } else if (window.innerWidth <= 768) {
+      this.dynamicCols = this.ipadCols;
+    } else {
+      this.dynamicCols = this.dynamicCols;
+    }
+  }
+
+  async fetchMovies() {
+    this.movieItems$ = await this.moviesService.httpGetMoviesImages();
+    this.movieItems$ = await this.sortMovies();
+    await this.sharedDataService.setMoviesData(this.movieItems$);
+  }
+
+  async sortMovies() {
+    return new Promise((resolve, reject) => {
+      let movies: MovieItem[] = this.movieItems$;
+      movies = movies.sort((left, right): number => {
         if (left.name < right.name) {
           return -1;
         }
@@ -37,15 +55,8 @@ export class MyMoviesComponent implements OnInit {
         }
         return 0;
       });
-      this.sharedDataService.setMoviesData(this.movieItems);
+      resolve(movies);
     });
-    if (window.innerWidth <= 400) {
-      this.dynamicCols = this.mobileCols;
-    } else if (window.innerWidth <= 768) {
-      this.dynamicCols = this.ipadCols;
-    } else {
-      this.dynamicCols = this.dynamicCols;
-    }
   }
 
   onResize(event) {
@@ -59,12 +70,13 @@ export class MyMoviesComponent implements OnInit {
   }
 
   retrieveImages(search: String) {
-    this.sharedDataService.getMoviesData().subscribe(data => {
-      if ( search === '') {
-      this.movieItems = data;
-      } else {
-        this.movieItems = data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
-      }
-    });
+    this.movieItems$ = this.sharedDataService.getMoviesData()
+      .then((data) => {
+        if ( search === '') {
+          this.movieItems$ = data;
+        } else {
+          this.movieItems$ = data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+        }
+      });
   }
 }

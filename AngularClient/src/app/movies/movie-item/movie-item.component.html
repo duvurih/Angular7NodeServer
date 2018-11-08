@@ -1,4 +1,4 @@
-<mat-card class="cardstyle" [style.overflow]="'auto'">
+<mat-card class="cardstyle" [style.overflow]="'auto'" *ngIf="movie" >
   <mat-card-header>
     <mat-card-title><b role="button" style="cursor:pointer;" (click)="viewMovie()">{{movie.name}}</b></mat-card-title>
   </mat-card-header>
@@ -8,8 +8,8 @@
       <div class="media-body">
         <h5 class="mt-0">{{movie.rating}}</h5>
         <h5 class="mt-0">{{movie.genre}}</h5>
-        <div class="hideOnMobile" *ngIf="showDescription=='false'" >{{movie.summary}}</div>
-        <div *ngIf="showDescription=='true'" >{{movie.summary}}</div>
+        <div class="hideOnMobile" *ngIf="showDescription=='false'">{{movie.summary}}</div>
+        <div *ngIf="showDescription=='true'">{{movie.summary}}</div>
       </div>
     </div>
   </mat-card-content>

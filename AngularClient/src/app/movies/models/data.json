@@ -1,0 +1,114 @@
+[
+    {
+        "name": "Wonder Woman",
+        "image": "wonderWoman.jpg",
+        "rating": "7.5/10",
+        "genre": "Action",
+        "summary": "When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny."
+    },
+    {
+        "name": "Get Out",
+        "image": "getOut.jpg",
+        "rating": "7.7/10",
+        "genre": "Horror",
+        "summary": "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point."
+    },
+    {
+        "name": "Dunkirk",
+        "image": "dunkirk.jpg",
+        "rating": "8.0/10",
+        "genre": "Action, Drama",
+        "summary": "Allied soldiers from Belgium, the British Empire and France are surrounded by the German Army, and evacuated during a fierce battle in World War II."
+    },
+    {
+        "name": "Star Wars: The Last Jedi",
+        "image": "starWars.jpg",
+        "rating": "7.2/10",
+        "genre": " Action, Adventure, Fantasy",
+        "summary": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares for battle with the First Order."
+    },
+    {
+        "name": "Lady Bird",
+        "image": "ladyBird.jpg",
+        "rating": "7.5/10",
+        "genre": "Comedy, Drama",
+        "summary": "In 2002, an artistically inclined seventeen-year-old girl comes of age in Sacramento, California."
+    },
+    {
+        "name": "X-Men: Apocalypse",
+        "image": "xMen.jpg",
+        "rating": "7.0/10",
+        "genre": " Action, Adventure, Sci-Fi",
+        "summary": "After the re-emergence of the world's first mutant, the world-destroyer Apocalypse, the X-Men must unite to defeat his extinction level plan."
+    },
+    {
+        "name": "Thor: Ragnarok",
+        "image": "thor.jpg",
+        "rating": "7.9/10",
+        "genre": " Action, Adventure, Comedy",
+        "summary": "Thor is imprisoned on the planet Sakaar, and must race against time to return to Asgard and stop Ragnarök, the destruction of his world, at the hands of the powerful and ruthless villain Hela."
+    },
+    {
+        "name": "Transformers: Dark of the Moon",
+        "image": "transformers.jpg",
+        "rating": "6.3/10",
+        "genre": "Action, Adventure, Sci-Fi ",
+        "summary": "The Autobots learn of a Cybertronian spacecraft hidden on the moon, and race against the Decepticons to reach it and to learn its secrets."
+    },
+    {
+        "name": "How to Train Your Dragon",
+        "image": "dragon.jpg",
+        "rating": "8.1/10",
+        "genre": "Animation, Action, Adventure",
+        "summary": "As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless' discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts at home and Hiccup's reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind."
+    },
+    {
+        "name": "The Shape of Water",
+        "image": "theShapeOfWater.jpg",
+        "rating": "7.4/10",
+        "genre": "Adventure, Drama, Fantasy",
+        "summary": "At a top secret research facility in the 1960s, a lonely janitor forms a unique relationship with an amphibious creature that is being held in captivity."
+    },
+    {
+        "name": "Blade Runner 2049",
+        "image": "bladeRunner.jpg",
+        "rating": "8.1/10",
+        "genre": "Drama, Mystery, Sci-Fi",
+        "summary": "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years."
+    },
+    {
+        "name": "Sherlock Holmes",
+        "image": "sherlockHolmes.jpg",
+        "rating": "7.6/10",
+        "genre": " Action, Adventure, Crime",
+        "summary": "Detective Sherlock Holmes and his stalwart partner Watson engage in a battle of wits and brawn with a nemesis whose plot is a threat to all of England."
+    },
+    {
+        "name": "The Amazing Spider-Man",
+        "image": "spiderMan.jpg",
+        "rating": "7.0/10",
+        "genre": "Action, Adventure, Sci-Fi",
+        "summary": "After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to solve the mystery of his parent's mysterious death."
+    },
+    {
+        "name": "Iron Man",
+        "image": "ironMan.jpg",
+        "rating": "7.9/10",
+        "genre": "Action, Adventure, Sci-Fi",
+        "summary": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil."
+    },
+    {
+        "name": "Annihilation",
+        "image": "annihilation.jpg",
+        "rating": "6.9/10",
+        "genre": " Adventure, Drama, Horror",
+        "summary": "A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply."
+    },
+    {
+        "name": "Black Panther",
+        "image": "blackPanther.jpg",
+        "rating": "7.4/10",
+        "genre": "Action, Adventure, Sci-Fi",
+        "summary": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past."
+    }
+]

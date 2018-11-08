@@ -12,7 +12,7 @@
 </div>
 <div class="row">&nbsp;</div>
 <mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
-  <mat-grid-tile *ngFor="let item of flickerItems" class="gridstyle">
+  <mat-grid-tile *ngFor="let item of flickerItems$ | async" class="gridstyle">
     <mat-card class="cardstyle" [style.overflow]="'auto'">
       <mat-card-header>
         <!-- <div mat-card-avatar style="background-size: cover;">

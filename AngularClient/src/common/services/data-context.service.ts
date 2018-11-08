@@ -12,7 +12,7 @@ export class DataContextService {
   localUrl: String = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
-  httpGet(url: string, parameters?: Object[], secure: boolean = true, fullUrl: boolean = false): Observable<any> {
+  httpGet(url: string, parameters?: Object[], secure: boolean = true, fullUrl: boolean = false) {
     let observable: any;
     const headers = new HttpHeaders();
     this.addContentTypeHeader(headers, 1);
@@ -22,6 +22,19 @@ export class DataContextService {
       url = this.localUrl + url;
     }
     observable = this.http.get(url, { headers: headers }).pipe(map((response) => response));
+    return observable;
+  }
+
+  async httpGetAsync(url: string, parameters?: Object[], secure: boolean = true, fullUrl: boolean = false) {
+    let observable: any;
+    const headers = new HttpHeaders();
+    this.addContentTypeHeader(headers, 1);
+    this.addAcceptHeader(headers, 2);
+    this.addAccessControlHeader(headers);
+    if (fullUrl === false) {
+      url = this.localUrl + url;
+    }
+    observable = await this.http.get(url, { headers: headers }).toPromise();
     return observable;
   }
 

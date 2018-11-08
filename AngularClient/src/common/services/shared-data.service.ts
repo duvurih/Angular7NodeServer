@@ -9,15 +9,15 @@ import { MovieItem } from './../../app/movies/models/movieItem.model';
 })
 export class SharedDataService {
 
-  private _moviesItems: MovieItem[];
+  private _moviesItems$;
 
   constructor() { }
 
-  public setMoviesData(movies: MovieItem[]) {
-    this._moviesItems = movies;
+  public async setMoviesData(movies$) {
+    this._moviesItems$ = movies$;
   }
 
-  public getMoviesData(): Observable<MovieItem[]> {
-    return of(this._moviesItems);
+  public async getMoviesData(): Promise<MovieItem[]> {
+    return this._moviesItems$;
   }
 }

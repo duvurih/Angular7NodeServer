@@ -25,7 +25,7 @@ Select
 <div class="row">&nbsp;</div>
 <div *ngIf="viewGrid">
   <cdk-virtual-scroll-viewport itemSize="200">
-    <li *cdkVirtualFor="let item of movieItems" class="animated lightSpeedIn">
+    <li *cdkVirtualFor="let item of movieItems$" class="animated lightSpeedIn">
       <app-movie-item [movie]="item" [showDescription]="'false'"></app-movie-item>
     </li> 
   </cdk-virtual-scroll-viewport>
@@ -33,7 +33,7 @@ Select
 <div *ngIf="!viewGrid">
   <!-- <cdk-virtual-scroll-viewport itemSize="10"> -->
     <mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
-      <mat-grid-tile *ngFor="let item of movieItems" class="animated lightSpeedIn gridstyle">
+      <mat-grid-tile *ngFor="let item of movieItems$" class="animated lightSpeedIn gridstyle">
         <app-movie-item [movie]="item" [showDescription]="'false'" style="height:100%; width:100%;" ></app-movie-item>
       </mat-grid-tile>
     </mat-grid-list>

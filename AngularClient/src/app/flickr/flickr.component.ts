@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable, of, pipe } from 'rxjs';
+import { map, catchError, debounceTime, publishReplay, shareReplay } from 'rxjs/operators';
+
 import { FlickrService } from './flickr.service';
 import { FlickerItem } from './flickr.model';
 
@@ -10,7 +13,8 @@ import { FlickerItem } from './flickr.model';
 })
 export class FlickrComponent implements OnInit {
 
-  public flickerItems: FlickerItem[] = [];
+  // public flickerItems: Observable<FlickerItem[]>;
+  flickerItems$;
   searchTag: String = 'Flowers';
   dynamicCols: Number = 2;
 
@@ -38,11 +42,8 @@ export class FlickrComponent implements OnInit {
   }
 
   retrieveImages(search: String) {
-    console.log('flickr init method');
-    this.flickrService.httpGetFlickrImages(search).subscribe(data => {
-      this.flickerItems = data.items;
-      console.log(this.flickerItems);
-    });
+    this.flickerItems$ = this.flickrService.httpGetFlickrImages(search);
+    this.flickerItems$.then((response) => { console.log(response); });
   }
 
 }

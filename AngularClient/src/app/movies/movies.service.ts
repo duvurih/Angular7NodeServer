@@ -12,7 +12,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient, private dataContextService: DataContextService) { }
 
-  httpGetMoviesImages() {
-    return this.dataContextService.httpGet('http://localhost:3000/movies', null, false, true);
+  async httpGetMoviesImages() {
+    return await this.dataContextService.httpGetAsync('http://localhost:3000/movies', null, false, true);
   }
 }
