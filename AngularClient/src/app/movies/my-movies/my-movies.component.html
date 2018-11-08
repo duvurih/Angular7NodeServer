@@ -24,7 +24,7 @@ Select
 </div>
 <div class="row">&nbsp;</div>
 <div *ngIf="viewGrid">
-  <cdk-virtual-scroll-viewport itemSize="4">
+  <cdk-virtual-scroll-viewport itemSize="200">
     <li *cdkVirtualFor="let item of movieItems" class="animated lightSpeedIn">
       <app-movie-item [movie]="item" [showDescription]="'false'"></app-movie-item>
     </li> 
