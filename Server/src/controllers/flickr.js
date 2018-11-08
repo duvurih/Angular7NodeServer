@@ -4,7 +4,7 @@ const flickrTagApi = 'https://api.flickr.com/services/feeds/photos_public.gne?ta
 module.exports = {
     index: async (req, res, next) => {
         const images = await axios.get(`${flickrApi}`);
-        res.status(200).json(images.data);
+        res.status(200).json(images.data.items);
     },
 
     getFlickrImage: async (req, res, next) => {
