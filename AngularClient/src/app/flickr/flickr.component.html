@@ -18,21 +18,26 @@
         <!-- <div mat-card-avatar style="background-size: cover;">
           <img mat-card-image [src]="item.media.m" alt="Image Not Available" class="responsive">
         </div> -->
-        <mat-card-title><b>{{item.title}} - ( {{item.published | date:'dd-MM-yyyy'}} )</b></mat-card-title>
+        <mat-card-title><b>{{item.author}} - ( {{item.published | date:'dd-MM-yyyy'}} )</b></mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div class="row">
-          <div class="col-sm-12">
-              <mat-expansion-panel [expanded]="'true'" class="expandstyle">
-                  <mat-expansion-panel-header>
-                      <mat-panel-title>
-                      Description
-                      </mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <p [innerHTML]="item.description"></p>
-              </mat-expansion-panel>
-          </div>
-        </div>
+        <mat-expansion-panel [expanded]="'true'" class="expandstyle animated fadeInDown">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Flickr Image
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="media">
+              <!-- <img class="mr-3" style="cursor:pointer;" src="../../../assets/{{movie.image}}" alt="Generic placeholder image" (click)="viewMovie()"> -->
+              <img mat-card-image class="mr-3" style="cursor:pointer;" [src]="item.media.m" alt="Generic placeholder image" (click)="viewMovie()" style="height:200px;width:200px;">
+              <div class="media-body">
+                <a href="{{item.link}}" target="_new">Click to View</a>
+                <h5 class="mt-0">{{item.title}}</h5>
+                <h5 class="mt-0">{{item.tags}}</h5>
+              </div>
+            </div>                  
+            <!-- <p [innerHTML]="item.description"></p> -->
+        </mat-expansion-panel>
       </mat-card-content>
     </mat-card>    
   </mat-grid-tile>
