@@ -22,22 +22,12 @@ Angular 7 + Node Server + ExpressJs + Axios + Mongoose + MongoDB
 - Show Collections >show collections
 - Make sure to change the user credentials in the application
 
-# Inser Data into Collection 
-db.financials.insert( { "name": "2015", "color": "brown", "data": [65.5, 33.5, 23.9, 120.8, 105.3, 130.9, 80.3, 89.9, 83.1, 79.1, 116.4, 139.2 ] } );
-
-db.financials.insert( { "name": "2016", "color": "green", "data": [23.9, 65.5, 33.5, 83.1, 79.1, 80.3, 89.9, 116.4, 120.8, 105.3, 130.9, 139.2] } );
-
-db.financials.insert( { "name": "2016", "color": "green", "data": [23.9, 65.5, 33.5, 83.1, 79.1, 80.3, 89.9, 116.4, 120.8, 105.3, 130.9, 139.2] } );
-
-# Find Data from Collection 
-db.financials.find(); db.financials.find().pretty();
-
 Now MongoDB is SETUP Completed
 
 # Server Project Build and Run
-> npm install
-> npm run dev
+- npm install
+- npm run dev
 
 # Client Project Build and Run
-> npm install
-> ng serve
+- npm install
+- ng serve
