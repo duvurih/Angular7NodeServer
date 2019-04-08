@@ -30,4 +30,5 @@ Now MongoDB is SETUP Completed
 
 # Client Project Build and Run
 - npm install
-- ng serve
+- ng serve / npm run start
+- ng test / npm run test
