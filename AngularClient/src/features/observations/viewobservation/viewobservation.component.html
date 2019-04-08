@@ -46,7 +46,7 @@
             </ng-container>
             <ng-container matColumnDef="discussionWith" mat-sort-header>
               <mat-header-cell *matHeaderCellDef> With </mat-header-cell>
-              <mat-cell *matCellDef="let item"> {{item.discussionWith.userId }} </mat-cell>
+              <mat-cell *matCellDef="let item"> <span *ngIf="item.discussionWith">{{item.discussionWith.userId }}</span></mat-cell>
             </ng-container>
             <ng-container matColumnDef="subject" mat-sort-header>
               <mat-header-cell *matHeaderCellDef> Subject </mat-header-cell>

@@ -22,7 +22,9 @@ export class ViewMovieComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.sharedDataService.getMoviesData().then((data) => {
-        this.movie = data.filter(item => item.name.toLowerCase().includes(params['name'].toLowerCase()))[0];
+        if (data !== undefined && data !== null) {
+          this.movie = data.filter(item => item.name.toLowerCase().includes(params['name'].toLowerCase()))[0];
+        }
       });
     });
   }

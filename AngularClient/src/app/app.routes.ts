@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,9 +13,3 @@ export const routes: Routes = [
   { path: 'flickr', component: FlickrComponent},
   { path: 'observation', loadChildren: './../features/observations/observations.module#ObservationsModule'}
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

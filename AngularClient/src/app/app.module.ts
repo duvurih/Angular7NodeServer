@@ -1,6 +1,7 @@
 import { BrowserModule, DomSanitizer, ɵDomSanitizerImpl  } from '@angular/platform-browser';
 import { NgModule, Sanitizer, ErrorHandler  } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -39,6 +40,7 @@ export const BROWSER_SANITIZATION_PROVIDERS: Array<any> = [
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -46,11 +48,17 @@ export const BROWSER_SANITIZATION_PROVIDERS: Array<any> = [
     ScrollDispatchModule,
     SharedModule.forRoot(),
     MaterialModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule
   ],
   providers: [
     BROWSER_SANITIZATION_PROVIDERS,
     { provide: MAT_DATE_LOCALE, useValue: 'en-AU' }
+  ],
+  exports:[
+    MyNavComponent,
+    DashboardComponent,
+    MyMoviesComponent
   ],
   bootstrap: [AppComponent]
 })

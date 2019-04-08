@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { Router, CanActivate } from '@angular/router';
+import { FormGroup, FormControl, NG_VALUE_ACCESSOR, Validators  } from '@angular/forms';
 
 // importing components
 import { AddobservationComponent } from './../addobservation/addobservation.component';
@@ -26,7 +27,7 @@ export class ViewCardObservationComponent implements OnInit {
   dataSaved = false;
   employeeID: String = 'EMP2018004';
   dynamicCols: Number = 3;
-
+  obsGroup: FormGroup;
   dialogRef: MatDialogRef<AddobservationComponent>;
     // injecting services
   constructor(
@@ -37,6 +38,9 @@ export class ViewCardObservationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.obsGroup = new FormGroup({
+      employeeID: new FormControl(this.employeeID, [Validators.required])
+    });
     this.getObservations(this.employeeID);
     // this.dynamicCols = (window.innerWidth <= 400) ? 1 : 6;
     if (window.innerWidth <= 400) {
@@ -44,7 +48,7 @@ export class ViewCardObservationComponent implements OnInit {
     } else if (window.innerWidth <= 768) {
       this.dynamicCols = 1;
     } else {
-      this.dynamicCols = 3;
+      this.dynamicCols = 2;
     }
   }
 
@@ -83,7 +87,7 @@ export class ViewCardObservationComponent implements OnInit {
     } else if (event.target.innerWidth <= 768) {
       this.dynamicCols = 1;
     } else {
-      this.dynamicCols = 3;
+      this.dynamicCols = 2;
     }
   }
 }

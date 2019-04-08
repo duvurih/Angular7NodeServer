@@ -8,8 +8,8 @@
       <div class="media-body">
         <h5 class="mt-0">{{movie.rating}}</h5>
         <h5 class="mt-0">{{movie.genre}}</h5>
-        <div class="hideOnMobile" *ngIf="showDescription=='false'">{{movie.summary}}</div>
-        <div *ngIf="showDescription=='true'">{{movie.summary}}</div>
+        <div class="hideOnMobile" *ngIf="showDescription==false">{{movie.summary}}</div>
+        <div *ngIf="showDescription==true">{{movie.summary}}</div>
       </div>
     </div>
   </mat-card-content>

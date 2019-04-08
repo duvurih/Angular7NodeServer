@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FlickrComponent } from './flickr.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FlickrComponent', () => {
   let component: FlickrComponent;
@@ -8,7 +10,9 @@ describe('FlickrComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlickrComponent ]
+      imports: [FormsModule, HttpClientModule],
+      declarations: [ FlickrComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

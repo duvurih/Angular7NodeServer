@@ -8,7 +8,7 @@ import { ObservationRouting } from './observation.routing';
 
 import { ViewobservationComponent } from './viewobservation/viewobservation.component';
 import { AddobservationComponent } from './addobservation/addobservation.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ObsDashboardComponent } from './dashboard/dashboard.component';
 import { ViewCardObservationComponent } from './view-card-observation/view-card-observation.component';
 
 @NgModule({
@@ -21,9 +21,16 @@ import { ViewCardObservationComponent } from './view-card-observation/view-card-
     ObservationRouting
   ],
   declarations: [
+    ObsDashboardComponent,
     ViewobservationComponent,
-    AddobservationComponent, DashboardComponent, ViewCardObservationComponent
+    AddobservationComponent,
+    ViewCardObservationComponent
   ],
-  entryComponents: [AddobservationComponent]
+  entryComponents: [
+    AddobservationComponent, 
+    ViewobservationComponent, 
+    AddobservationComponent,
+    ViewCardObservationComponent
+  ]
 })
 export class ObservationsModule { }

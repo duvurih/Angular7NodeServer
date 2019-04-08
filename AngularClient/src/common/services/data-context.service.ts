@@ -26,7 +26,7 @@ export class DataContextService {
   }
 
   async httpGetAsync(url: string, parameters?: Object[], secure: boolean = true, fullUrl: boolean = false) {
-    let observable: any;
+    let promise: any;
     const headers = new HttpHeaders();
     this.addContentTypeHeader(headers, 1);
     this.addAcceptHeader(headers, 2);
@@ -34,8 +34,8 @@ export class DataContextService {
     if (fullUrl === false) {
       url = this.localUrl + url;
     }
-    observable = await this.http.get(url, { headers: headers }).toPromise();
-    return observable;
+    promise = await this.http.get(url, { headers: headers }).toPromise();
+    return promise;
   }
 
     httpPost(url: string, dataObject: any, fullUrl: boolean = false): Observable<any> {

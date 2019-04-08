@@ -2,20 +2,22 @@
 <div class="alert alert-danger">
   Enter employee id to view the observations.
 </div>
-<div class="row">
-  <div class="col-sm-3">
-      Enter Employee ID*     
-  </div>
-  <div class="col-sm-6">
-    <div class="input-group mb-6">
-        <input type="text" class="form-control" [(ngModel)]="employeeID" [ngModelOptions]="{standalone: true}" />
-        <button class="btn btn-primary" (click)="getObservations(employeeID)">Search</button>
-        <button aria-label="Add" class="btn btn-success" (click)="addObservation()" style="align-self: center" align="end">
-            <i class="fa fa-add" aria-hidden="true"></i> +                          
-        </button>        
+<form [formGroup]="obsGroup" >
+    <div class="row">
+        <div class="col-sm-3">
+            Enter Employee ID*     
+        </div>
+        <div class="col-sm-6">
+            <div class="input-group mb-6">
+                <input name="employeeID" id="employeeID" type="text" class="form-control" formControlName="employeeID" [(ngModel)]="employeeID" ngDefaultControl />
+                <button class="btn btn-primary" (click)="getObservations(employeeID)">Search</button>
+                <button aria-label="Add" class="btn btn-success" (click)="addObservation()" style="align-self: center" align="end">
+                    <i class="fa fa-add" aria-hidden="true"></i> +                          
+                </button>        
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</form>
 <div class="row">&nbsp;</div>
 <mat-grid-list [cols]="dynamicCols" rowHeight="2:1" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let item of observationList" style="border:solid;color: burlywood">
@@ -40,7 +42,7 @@
                                     Discussed With
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <p>{{item.discussionWith.userId}}</p>
+                                <p *ngIf="item.discussionWith">{{item.discussionWith.userId}}</p>
                             </mat-expansion-panel>                      
                         </div>                  
                     </div>

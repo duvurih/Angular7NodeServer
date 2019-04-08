@@ -17,27 +17,30 @@ export class FlickrComponent implements OnInit {
   flickerItems$;
   searchTag: String = 'Flowers';
   dynamicCols: Number = 2;
-
+  desktopCols: Number = 2;
+  ipadCols: Number = 2;
+  mobileCols: Number = 1;
+  
   constructor(private flickrService: FlickrService) { }
 
   ngOnInit() {
     if (window.innerWidth <= 400) {
-      this.dynamicCols = 1;
+      this.dynamicCols = this.mobileCols;
     } else if (window.innerWidth <= 768) {
-      this.dynamicCols = 1;
+      this.dynamicCols = this.ipadCols;
     } else {
-      this.dynamicCols = 2;
+      this.dynamicCols = this.desktopCols;
     }
     this.retrieveImages(this.searchTag);
   }
 
   onResize(event) {
     if (event.target.innerWidth <= 400) {
-      this.dynamicCols = 1;
+      this.dynamicCols = this.mobileCols;
     } else if (event.target.innerWidth <= 768) {
-      this.dynamicCols = 1;
+      this.dynamicCols = this.ipadCols;
     } else {
-      this.dynamicCols = 2;
+      this.dynamicCols = this.desktopCols;
     }
   }
 

@@ -1,9 +1,10 @@
+import { UserModel } from './user.model';
 export class ObservationModel {
     public id: number;
     public discussion: string;
     public discussionDate: Date;
     public discussionLocation: string;
-    public discussionWith: string;
+    public discussionWith: UserModel;
     public subject: string;
     public outcome: string;
     public recordedBy: string;
@@ -13,7 +14,7 @@ export class ObservationModel {
         this.discussion = '';
         this.discussionDate = new Date();
         this.discussionLocation = '';
-        this.discussionWith = '';
+        this.discussionWith = null;
         this.subject = '';
         this.outcome = '';
         this.recordedBy = '';

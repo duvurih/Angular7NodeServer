@@ -18,6 +18,8 @@ export class ObservationsService {
   }
 
   saveObservation(userId: String, observation: ObservationModel) {
+    console.log("userid");
+    console.log(userId);
       return this.dataContext.httpPost('users/' + userId + '/observations' , observation);
   }
 

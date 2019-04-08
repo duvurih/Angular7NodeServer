@@ -1,33 +1,34 @@
 <h1 class="mat-h1">Movies Dashboard</h1>
-Select
-<mat-slide-toggle [(ngModel)]="viewGrid" [ngModelOptions]="{standalone: true}">
-  <span *ngIf="!viewGrid" >List View</span>
-  <span *ngIf="viewGrid" >Card View</span>
-</mat-slide-toggle>
-<div class="row shortRow"></div>
-<!-- <div class="row">
-  <div class="col-sm-12">
-    <img class="imgresponsive" src="../../assets/background.png" alt="Movies placeholder image">
-  </div>
-</div> -->
-<div class="row">
-  <div class="col-sm-3">
-      Filter by Name*     
-  </div>
-  <div class="col-sm-6">
-    <div class="input-group mb-6">
-      <input type="text" class="form-control" [(ngModel)]="searchTag" [ngModelOptions]="{standalone: true}" />
-      <button class="btn btn-primary btn-sm" (click)="retrieveImages(searchTag)">Search</button>
-      <button class="btn btn-danger btn-sm" (click)="searchTag='';retrieveImages(searchTag)">Clear</button>
+<form [formGroup]="searchGroup">
+  <div class="row">
+    <div class="col-sm-12">
+        Select
+        <mat-slide-toggle name="viewGrid" id="viewGrid" formControlName="viewGrid" [(ngModel)]="viewGrid" ngDefaultControl>
+          <span *ngIf="!viewGrid" >List View</span>
+          <span *ngIf="viewGrid" >Card View</span>
+        </mat-slide-toggle>      
     </div>
   </div>
-</div>
+  <div class="row shortRow"></div>
+  <div class="row">
+    <div class="col-sm-3">
+        Filter by Name*
+    </div>
+    <div class="col-sm-6">
+      <div class="input-group mb-6">
+          <input name="searchTag" id="searchTag" type="text" formControlName="searchTag" class="form-control"  />
+          <button class="btn btn-primary btn-sm" (click)="retrieveImages()">Search</button>
+          <button class="btn btn-danger btn-sm" (click)="clearSearch()">Clear</button>
+      </div>
+    </div>
+  </div>
+</form>
 <div class="row">&nbsp;</div>
 <div *ngIf="viewGrid">
   <cdk-virtual-scroll-viewport itemSize="200">
     <li *cdkVirtualFor="let item of movieItems$" class="animated lightSpeedIn">
       <app-movie-item [movie]="item" [showDescription]="'false'"></app-movie-item>
-    </li> 
+    </li>
   </cdk-virtual-scroll-viewport>
 </div>
 <div *ngIf="!viewGrid">
